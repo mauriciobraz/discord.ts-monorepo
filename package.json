@@ -1,0 +1,19 @@
+{
+  "name": "discord.ts-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
+  },
+  "packageManager": "pnpm@7.12.2",
+  "devDependencies": {
+    "turbo": "^1.7.0"
+  }
+}
