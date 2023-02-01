@@ -1,0 +1,10 @@
+{
+  "extends": "@discord.ts-monorepo/tsconfig/base.json",
+  "compilerOptions": {
+    "target": "es2021",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["node_modules/@types", "src/types"]
+  }
+}

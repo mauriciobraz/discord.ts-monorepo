@@ -3,6 +3,8 @@
   "eslint.workingDirectories": [
     // You should add every workspace folder here that you want to lint.
     // This is a workaround for eslint working with pnpm workspaces.
+    "./apps/client",
+    "./apps/web"
   ],
 
   "editor.codeActionsOnSave": {

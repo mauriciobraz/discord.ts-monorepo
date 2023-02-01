@@ -1,0 +1,7 @@
+{
+  "name": "@discord.ts-monorepo/tsconfig",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  }
+}
