@@ -1,5 +1,8 @@
 {
   "extends": "@discord.ts-monorepo/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types/d", "src/types"]
+  },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
