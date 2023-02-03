@@ -1,4 +1,4 @@
-import { EnvSchema } from "../utils/process-env";
+import { EnvSchema } from '../utils/process-env';
 
 declare global {
   namespace NodeJS {

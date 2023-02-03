@@ -1,19 +1,24 @@
 {
+  "private": true,
   "name": "client",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "NODE_ENV=DEVELOPMENT ts-node-dev --respawn --transpile-only src/index.ts",
+    "lint": "prettier --check .",
+    "start": "NODE_ENV=PRODUCTION node build/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@discord.ts-monorepo/tsconfig": "workspace:*",
-    "@types/node": "^18.11.18"
+    "@types/node": "^18.11.18",
+    "prettier": "^2.8.3",
+    "typescript": "4.9.4"
   },
   "dependencies": {
+    "discord.js": "^14.7.1",
+    "discordx": "^11.6.0",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.5.0",
+    "tslog": "^4.7.1",
     "zod": "^3.20.2"
   }
 }
