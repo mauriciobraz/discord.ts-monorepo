@@ -26,17 +26,106 @@ type RootTranslation = {
 	 * T​h​i​s​ ​i​s​ ​a​n​ ​e​x​a​m​p​l​e​ ​o​f​ ​a​ ​m​e​s​s​a​g​e​ ​w​i​t​h​ ​I​1​8​n​ ​s​u​p​p​o​r​t​.
 	 */
 	EXAMPLE_MESSAGE: string
+	/**
+	 * C​u​r​r​e​n​t​l​y​ ​y​o​u​ ​h​a​v​e​ ​{​t​o​d​o​s​C​o​u​n​t​}​ ​t​o​d​o​s​ ​i​n​ ​y​o​u​r​ ​l​i​s​t​.​
+​
+​{​t​o​d​o​s​}
+	 * @param {string} todos
+	 * @param {number} todosCount
+	 */
+	TODOS_LIST_TODOS: RequiredParams<'todos' | 'todosCount'>
+	/**
+	 * Y​o​u​ ​h​a​v​e​ ​n​o​ ​t​o​d​o​s​ ​y​e​t​.​ ​U​s​e​ ​`​/​t​o​d​o​s​ ​a​d​d​`​ ​t​o​ ​a​d​d​ ​o​n​e​.
+	 */
+	TODOS_LIST_TODOS_NO_TODOS: string
+	/**
+	 * T​o​d​o​ ​a​d​d​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​w​i​t​h​ ​s​l​u​g​ ​`​{​s​l​u​g​}​`​.
+	 * @param {string} slug
+	 */
+	TODOS_ADD_TODO_SUCCESS: RequiredParams<'slug'>
+	/**
+	 * T​o​d​o​ ​r​e​m​o​v​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+	 */
+	TODOS_REMOVE_TODO_SUCCESS: string
+	/**
+	 * T​o​d​o​ ​n​o​t​ ​f​o​u​n​d​.
+	 */
+	TODOS_TODO_NOT_FOUND: string
+	/**
+	 * T​o​d​o​ ​s​e​t​ ​a​s​ ​c​o​m​p​l​e​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+	 */
+	TODOS_COMPLETE_TODO_SUCCESS: string
+	/**
+	 * T​o​d​o​ ​s​e​t​ ​a​s​ ​u​n​c​o​m​p​l​e​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+	 */
+	TODOS_UNCOMPLETE_TODO_SUCCESS: string
 }
 
 export type NamespaceSLASHTranslation = {
 	/**
-	 * e​x​a​m​p​l​e
+	 * t​o​d​o​s
 	 */
-	EXAMPLE_EXAMPLE_NAME: string
+	TODOS_NAME: string
 	/**
-	 * T​h​i​s​ ​i​s​ ​a​n​ ​e​x​a​m​p​l​e​ ​c​o​m​m​a​n​d​.
+	 * C​o​m​m​a​n​d​s​ ​t​o​ ​m​a​n​a​g​e​ ​y​o​u​r​ ​t​o​d​o​s​.
 	 */
-	EXAMPLE_EXAMPLE_DESCRIPTION: string
+	TODOS_DESCRIPTION: string
+	/**
+	 * s​l​u​g
+	 */
+	TODOS_OPTION_SLUG_NAME: string
+	/**
+	 * T​h​e​ ​s​l​u​g​ ​o​f​ ​t​h​e​ ​t​o​d​o​.
+	 */
+	TODOS_OPTION_SLUG_DESCRIPTION: string
+	/**
+	 * l​i​s​t
+	 */
+	TODOS_LIST_TODOS_NAME: string
+	/**
+	 * L​i​s​t​ ​a​l​l​ ​y​o​u​r​ ​t​o​d​o​s​.
+	 */
+	TODOS_LIST_TODOS_DESCRIPTION: string
+	/**
+	 * a​d​d
+	 */
+	TODOS_ADD_TODO_NAME: string
+	/**
+	 * A​d​d​ ​a​ ​t​o​d​o​.
+	 */
+	TODOS_ADD_TODO_DESCRIPTION: string
+	/**
+	 * t​i​t​l​e
+	 */
+	TODOS_ADD_TODO_OPTION_TITLE_NAME: string
+	/**
+	 * T​h​e​ ​t​i​t​l​e​ ​o​f​ ​t​h​e​ ​t​o​d​o​.
+	 */
+	TODOS_ADD_TODO_OPTION_TITLE_DESCRIPTION: string
+	/**
+	 * r​e​m​o​v​e
+	 */
+	TODOS_REMOVE_TODO_NAME: string
+	/**
+	 * R​e​m​o​v​e​ ​a​ ​t​o​d​o​.
+	 */
+	TODOS_REMOVE_TODO_DESCRIPTION: string
+	/**
+	 * c​o​m​p​l​e​t​e
+	 */
+	TODOS_COMPLETE_TODO_NAME: string
+	/**
+	 * C​o​m​p​l​e​t​e​ ​a​ ​t​o​d​o​.
+	 */
+	TODOS_COMPLETE_TODO_DESCRIPTION: string
+	/**
+	 * u​n​c​o​m​p​l​e​t​e
+	 */
+	TODOS_UNCOMPLETE_TODO_NAME: string
+	/**
+	 * U​n​c​o​m​p​l​e​t​e​ ​a​ ​t​o​d​o​.
+	 */
+	TODOS_UNCOMPLETE_TODO_DESCRIPTION: string
 }
 
 export type Namespaces =
@@ -59,15 +148,101 @@ export type TranslationFunctions = {
 	 * This is an example of a message with I18n support.
 	 */
 	EXAMPLE_MESSAGE: () => LocalizedString
+	/**
+	 * Currently you have {todosCount} todos in your list.
+
+{todos}
+	 */
+	TODOS_LIST_TODOS: (arg: { todos: string, todosCount: number }) => LocalizedString
+	/**
+	 * You have no todos yet. Use `/todos add` to add one.
+	 */
+	TODOS_LIST_TODOS_NO_TODOS: () => LocalizedString
+	/**
+	 * Todo added successfully with slug `{slug}`.
+	 */
+	TODOS_ADD_TODO_SUCCESS: (arg: { slug: string }) => LocalizedString
+	/**
+	 * Todo removed successfully.
+	 */
+	TODOS_REMOVE_TODO_SUCCESS: () => LocalizedString
+	/**
+	 * Todo not found.
+	 */
+	TODOS_TODO_NOT_FOUND: () => LocalizedString
+	/**
+	 * Todo set as completed successfully.
+	 */
+	TODOS_COMPLETE_TODO_SUCCESS: () => LocalizedString
+	/**
+	 * Todo set as uncompleted successfully.
+	 */
+	TODOS_UNCOMPLETE_TODO_SUCCESS: () => LocalizedString
 	SLASH: {
 		/**
-		 * example
+		 * todos
 		 */
-		EXAMPLE_EXAMPLE_NAME: () => LocalizedString
+		TODOS_NAME: () => LocalizedString
 		/**
-		 * This is an example command.
+		 * Commands to manage your todos.
 		 */
-		EXAMPLE_EXAMPLE_DESCRIPTION: () => LocalizedString
+		TODOS_DESCRIPTION: () => LocalizedString
+		/**
+		 * slug
+		 */
+		TODOS_OPTION_SLUG_NAME: () => LocalizedString
+		/**
+		 * The slug of the todo.
+		 */
+		TODOS_OPTION_SLUG_DESCRIPTION: () => LocalizedString
+		/**
+		 * list
+		 */
+		TODOS_LIST_TODOS_NAME: () => LocalizedString
+		/**
+		 * List all your todos.
+		 */
+		TODOS_LIST_TODOS_DESCRIPTION: () => LocalizedString
+		/**
+		 * add
+		 */
+		TODOS_ADD_TODO_NAME: () => LocalizedString
+		/**
+		 * Add a todo.
+		 */
+		TODOS_ADD_TODO_DESCRIPTION: () => LocalizedString
+		/**
+		 * title
+		 */
+		TODOS_ADD_TODO_OPTION_TITLE_NAME: () => LocalizedString
+		/**
+		 * The title of the todo.
+		 */
+		TODOS_ADD_TODO_OPTION_TITLE_DESCRIPTION: () => LocalizedString
+		/**
+		 * remove
+		 */
+		TODOS_REMOVE_TODO_NAME: () => LocalizedString
+		/**
+		 * Remove a todo.
+		 */
+		TODOS_REMOVE_TODO_DESCRIPTION: () => LocalizedString
+		/**
+		 * complete
+		 */
+		TODOS_COMPLETE_TODO_NAME: () => LocalizedString
+		/**
+		 * Complete a todo.
+		 */
+		TODOS_COMPLETE_TODO_DESCRIPTION: () => LocalizedString
+		/**
+		 * uncomplete
+		 */
+		TODOS_UNCOMPLETE_TODO_NAME: () => LocalizedString
+		/**
+		 * Uncomplete a todo.
+		 */
+		TODOS_UNCOMPLETE_TODO_DESCRIPTION: () => LocalizedString
 	}
 }
 

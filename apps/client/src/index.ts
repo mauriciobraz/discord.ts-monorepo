@@ -1,14 +1,29 @@
 import 'dotenv/config';
 import 'reflect-metadata';
 
-import { Client } from 'discordx';
+import { PrismaClient } from '@discord.ts-monorepo/database';
+import { Client, DIService, typeDiDependencyRegistryEngine } from 'discordx';
 import { readdir } from 'fs/promises';
 import { resolve } from 'path';
+import Container, { Service } from 'typedi';
 
 import { DISCORD_TOKEN, NODE_ENV } from './utils/process-env';
 
 export default async function main() {
+  DIService.engine = typeDiDependencyRegistryEngine
+    .setInjector(Container)
+    .setService(Service);
+
+  await initializeDatabase();
   await initializeClient();
+}
+
+/** @internal Initialize the Prisma database. */
+async function initializeDatabase() {
+  const prisma = new PrismaClient();
+  await prisma.$connect();
+
+  Container.set(PrismaClient, prisma);
 }
 
 /** @internal Initialize the client and login to Discord. */

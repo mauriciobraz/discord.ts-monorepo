@@ -52,6 +52,11 @@ function isNullish<T>(value: Nullish<T>): boolean {
   return value === undefined || value === null || value === '' || !value;
 }
 
+/** @internal Transforms a camelCase string to a SCREAMING_SNAKE_CASE string. */
+function camelCaseToScreamingSnakeCase(str: string): string {
+  return str.replace(/([a-z])([A-Z])/g, '$1_$2').toUpperCase();
+}
+
 /**
  * Executes a localization function and returns the localized string.
  * @throws If the path is pointing to an invalid localization key.
@@ -150,8 +155,8 @@ function getDefaultNameAndDescription(
   argumentIndex?: number
 ): BaseOptions {
   const path = (
-    target.constructor.name +
-    (key ? '_' + key : '') +
+    camelCaseToScreamingSnakeCase(target.constructor.name) +
+    (key ? '_' + camelCaseToScreamingSnakeCase(key) : '') +
     (argumentIndex ? '_OPTION_' + argumentIndex : '')
   ).toUpperCase();
 
