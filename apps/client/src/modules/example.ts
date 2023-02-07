@@ -1,19 +1,18 @@
 import { ChatInputCommandInteraction } from 'discord.js';
-import { Discord, Slash } from 'discordx';
+import { Discord } from 'discordx';
 
+import L from '../i18n/i18n-node';
+import { Command, getPreferredLocale } from '../utils/discord-i18n';
 import { ObjectWithLogger } from '../utils/tslog';
 
 @Discord()
 export default class Example {
-  @Slash({
-    name: 'example',
-    description: 'An example command.',
-  })
+  @Command()
   async example(interaction: ObjectWithLogger<ChatInputCommandInteraction>) {
-    interaction.logger.debug('This is an example of a log message.');
+    const LL = L[getPreferredLocale(interaction)];
 
     await interaction.reply({
-      content: 'This is an example of a reply.',
+      content: LL.EXAMPLE_MESSAGE(),
     });
   }
 }

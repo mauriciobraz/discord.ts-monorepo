@@ -5,7 +5,8 @@
     "build": "tsc -p tsconfig.build.json",
     "dev": "NODE_ENV=DEVELOPMENT ts-node-dev --respawn --transpile-only src/index.ts",
     "lint": "prettier --check .",
-    "start": "NODE_ENV=PRODUCTION node build/index.js"
+    "start": "NODE_ENV=PRODUCTION node build/index.js",
+    "typesafe-i18n": "typesafe-i18n"
   },
   "devDependencies": {
     "@discord.ts-monorepo/tsconfig": "workspace:*",
@@ -19,6 +20,7 @@
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.5.0",
     "tslog": "^4.7.1",
+    "typesafe-i18n": "^5.24.0",
     "zod": "^3.20.2"
   }
 }
