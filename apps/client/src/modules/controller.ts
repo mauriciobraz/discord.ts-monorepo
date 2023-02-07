@@ -16,20 +16,24 @@ export default class Controller {
 
   @On({ event: 'interactionCreate' })
   async onInteractionCreate(
-    [interaction]: ArgsOf<'interactionCreate'>,
+    [interaction]: [ObjectWithLogger<Interaction>],
     client: Client
   ) {
-    (interaction as ObjectWithLogger<Interaction>).logger = logger.getSubLogger(
-      {
-        prefix: [
-          interaction.id,
-          interaction.user.id,
-          interaction.guild?.id ?? 'DM',
-        ],
-      }
-    );
+    interaction.logger = logger.getSubLogger({
+      prefix: [
+        interaction.id,
+        interaction.user.id,
+        interaction.guild?.id ?? 'DM',
+      ],
+    });
 
-    await client.executeInteraction(interaction);
+    try {
+      interaction.logger.info('Received interaction.');
+      await client.executeInteraction(interaction);
+      interaction.logger.info('Successfully executed interaction.');
+    } catch (error) {
+      interaction.logger.error(error);
+    }
   }
 
   // Uncomment this if you want to use message commands (not recommended).

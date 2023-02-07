@@ -9,7 +9,7 @@ export type ObjectWithLogger<T extends object> = T & {
 };
 
 export const logger = new Logger({
-  prettyLogTemplate: '{{dateIsoStr}} {{logLevelName}}',
+  prettyLogTemplate: '{{dateIsoStr}} {{logLevelName}} ',
   minLevel: LOG_LEVEL,
 });
 
