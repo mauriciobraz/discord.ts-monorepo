@@ -86,8 +86,10 @@ importers:
     specifiers:
       '@prisma/client': ^4.10.0
       prisma: ^4.10.0
+      tslib: ^2.5.0
     dependencies:
       '@prisma/client': 4.10.0_prisma@4.10.0
+      tslib: 2.5.0
     devDependencies:
       prisma: 4.10.0
 

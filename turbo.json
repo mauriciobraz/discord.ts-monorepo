@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^db:generate", "^build"],
+      "dependsOn": ["^db:generate", "generate-i18n", "^build"],
       "outputs": ["build/**", ".next/**"]
     },
     "db:generate": {
@@ -12,8 +12,12 @@
       "cache": false
     },
     "dev": {
-      "dependsOn": ["^db:generate"],
+      "dependsOn": ["^db:generate", "generate-i18n"],
       "cache": false
+    },
+    "generate-i18n": {
+      "inputs": ["src/i18n/**"],
+      "outputs": ["src/i18n/**"]
     },
     "lint": {
       "outputs": []

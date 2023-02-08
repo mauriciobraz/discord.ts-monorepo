@@ -6,7 +6,8 @@
     "dev": "NODE_ENV=DEVELOPMENT ts-node-dev --respawn --transpile-only src/index.ts",
     "lint": "prettier --check .",
     "start": "NODE_ENV=PRODUCTION node build/index.js",
-    "typesafe-i18n": "typesafe-i18n"
+    "typesafe-i18n": "typesafe-i18n",
+    "generate-i18n": "typesafe-i18n --no-watch"
   },
   "devDependencies": {
     "@discord.ts-monorepo/tsconfig": "workspace:*",
