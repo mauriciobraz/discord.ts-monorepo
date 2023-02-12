@@ -13,21 +13,21 @@ I wanted to learn about monorepos and how to use them. I chose to use [pnpm](htt
 
 For more information about some of the apps, see their `README` files.
 
-### [@discord.ts-monorepo/client](./packages/client/README.md)
+### [@discord.ts-monorepo/client](./apps/client/README.md)
 
 The client is a powerful Discord bot built using [Discord.js](https://discord.js.org/). It also has a localization system built-in using [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n) and a command handler using [discordx](https://github.com/discordx-ts/discordx).
 
-### [@discord.ts-monorepo/web](./packages/web/README.md)
+### [@discord.ts-monorepo/web](./apps/web/README.md)
 
 The web application is a [Next.js](https://nextjs.org/) application that is used to interact with the Discord API. It is written in TypeScript and uses [SWR](https://swr.vercel.app/) for data fetching and [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 ## Packages
 
-### [@discord.ts-monorepo/database](./packages/database/README.md)
+### [@discord.ts-monorepo/database](./packages/database)
 
 This package contains a [Prisma](https://www.prisma.io/) schema and client for the database that can be shared between all applications.
 
-### [@discord.ts-monorepo/tsconfig](./packages/tsconfig/README.md)
+### [@discord.ts-monorepo/tsconfig](./packages/tsconfig)
 
 This package contains some common TypeScript configurations files (`tsconfig.json`).
 
