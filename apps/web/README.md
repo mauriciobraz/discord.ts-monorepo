@@ -1,27 +1,51 @@
-# Next.js + Tailwind CSS Example
+# @discord.ts-monorepo/web
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is the web application of the discord.ts monorepo. It is a Next.js application, which is using [SWR](https://swr.vercel.app/) for data fetching and [Tailwind CSS](https://tailwindcss.com/) for styling.
 
-## Deploy your own
+## Configuration
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Clone the `.env.example` file and rename it to `.env`. Then, fill in the required fields:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+cp .env.example .env
 ```
+
+- `NEXT_PUBLIC_DISCORD_API_BASE_URL`: Base URL for the Discord API.
+- `DISCORD_CLIENT_ID`: OAuth2 client ID for your Discord application.
+- `DISCORD_CLIENT_SECRET`: OAuth2 client secret for your Discord application.
+- [`NEXTAUTH_SECRET`](https://next-auth.js.org/configuration/options#nextauth_secret): Used to sign the session cookie.
+- [`NEXTAUTH_URL`](https://next-auth.js.org/configuration/options#nextauth_url): URL of the NextAuth.js API.
+
+> **Note**
+> You can get your Discord application's client ID and secret from the [Discord Developer Portal](https://discord.com/developers/applications).
+
+## Development
 
 ```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+pnpm dev
 ```
+
+## Production
 
 ```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+pnpm build
+pnpm start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Hooks
+
+### [`useSWRDiscordApi`](./src/hooks/useSWRDiscordApi.ts)
+
+This hook is used to fetch data from the Discord API. It is a wrapper around [`useSWR`](https://swr.vercel.app/docs/use-swr) that automatically adds the `Authorization` header to the request and type-safety for the options and response.
+
+```ts
+import { useSWRDiscordApi } from "src/hooks/useSWRDiscordApi";
+import type { GetGuildsResponse } from "discord-api-types/v9";
+
+const [data, error, isLoading] =
+  useSWRDiscordApi<GetGuildsResponse>("/users/@me/guilds");
+
+// data: GetGuildsResponse | undefined
+// error: Error | undefined
+// isLoading: boolean
+```
