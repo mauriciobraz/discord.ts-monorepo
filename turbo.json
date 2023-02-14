@@ -21,6 +21,10 @@
     },
     "lint": {
       "outputs": []
+    },
+    "start": {
+      "dependsOn": ["^db:generate", "generate-i18n"],
+      "cache": false
     }
   }
 }
