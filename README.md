@@ -1,6 +1,3 @@
-> **Warning**
-> This is a work in progress and is not ready yet.
-
 # DiscordTsMonorepo
 
 This monorepo contains a Discord bot built with discord.js and discordx, featuring decorator support and localization with typesafe-i18n. For the web application, it uses Next.js, SWR and Tailwind CSS.
@@ -33,20 +30,21 @@ This package contains some common TypeScript configurations files (`tsconfig.jso
 
 ## How to use
 
-### Clone the repository
-
 ```bash
+# Clone the repository
 git clone
-```
 
-### Install dependencies
-
-```bash
+# Install dependencies
 pnpm install
+
+# Build the packages
+pnpm build
 ```
 
-### Build the packages
+## Docker Support
+
+This template is also configured to run in a Docker container using [Docker Compose](https://docs.docker.com/compose/). To run the bot in a container, fill all the `.env` files with the correct values and run the following command:
 
 ```bash
-pnpm build
+docker-compose up -d
 ```
